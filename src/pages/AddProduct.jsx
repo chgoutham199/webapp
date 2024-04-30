@@ -85,11 +85,14 @@ export default function AddProduct() {
             className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
           />
         </div>
+        { productDetails.modelVariantsName.map((variant,index)=>(
+          <>
         <div className="flex flex-col gap-3">
           <label for="Modal variants Name" className="font-normal ">
             Model Variants Name
           </label>
           <input
+            key={index}
             name="modelVariantsName"
             value={productDetails.modelVariantsName}
             onChange={handleChange}
@@ -103,6 +106,7 @@ export default function AddProduct() {
             Product Reference Link
           </label>
           <input
+          key={index}
             name="productReferenceLink"
             value={productDetails.productReferenceLink}
             onChange={handleChange}
@@ -110,6 +114,9 @@ export default function AddProduct() {
             placeholder="Describe URL Link"
             className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
           />
+          </div>
+           </>
+        ))}
             <div className="flex justify-between max-w-5xl pt-3">
               <Link to="/">
                 <button className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  ">
@@ -121,7 +128,6 @@ export default function AddProduct() {
                 Add Product
                 </button>
             </div>
-        </div>
       </form>
     </div>
   );
