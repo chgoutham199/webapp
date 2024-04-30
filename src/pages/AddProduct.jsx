@@ -8,10 +8,10 @@ export default function AddProduct() {
   const [productDetails, setProductDetails] = useState({
     brandName: '',
     modelName: '',
-    modelVariantsName: '',
+    modelVariantsName: [''],
     catalogName: '',
     subCatalogName: '',
-    productReferenceLink: ''
+    productReferenceLink: ['']
   });
    const navigate=useNavigate();
   const handleChange = (e) => {
@@ -27,13 +27,13 @@ export default function AddProduct() {
   };
 
   return (
-    <div className=" bg-neutral-900 bg-cover mr-6 ml-3 rounded-lg  max-w-6xl  mx-auto">
+    <div className=" bg-neutral-900 rounded-lg  p-3  max-w-7xl  mr-5 ml-5">
       <form
         onSubmit={handleSubmit}
-        className=" ml-4 px-9 pt-7  flex flex-col  text-neutral-300  gap-3"
+        className="flex flex-col text-neutral-300  gap-4 p-3 m-3 pl-5 ml-5"
       >
         <div className="flex flex-col gap-3">
-          <label for="Brand Name" className=" font-normal">
+          <label for="Brand Name" className=" font-normal ">
             Brand Name
           </label>
           <input
@@ -42,7 +42,7 @@ export default function AddProduct() {
             onChange={handleChange}
             type="text"
             placeholder="Describe Brand Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-4xl  "
+            className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -55,22 +55,10 @@ export default function AddProduct() {
             onChange={handleChange}
             type="text"
             placeholder="Describe Model Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-4xl  "
+            className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
           />
         </div>
-        <div className="flex flex-col gap-3">
-          <label for="Modal variants Name" className="font-normal ">
-            Model Variants Name
-          </label>
-          <input
-            name="modelVariantsName"
-            value={productDetails.modelVariantsName}
-            onChange={handleChange}
-            type="text"
-            placeholder="Describe Model Variants Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-4xl  "
-          />
-        </div>
+       
         <div className="flex flex-col gap-3">
           <label for="Catalog Name" className="font-normal ">
             Catalog Name
@@ -81,7 +69,7 @@ export default function AddProduct() {
             onChange={handleChange}
             type="text"
             placeholder="Describe Catalog Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-4xl  "
+            className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -94,7 +82,20 @@ export default function AddProduct() {
             onChange={handleChange}
             type="text"
             placeholder="Describe Sub Catalog Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-4xl  "
+            className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
+          />
+        </div>
+        <div className="flex flex-col gap-3">
+          <label for="Modal variants Name" className="font-normal ">
+            Model Variants Name
+          </label>
+          <input
+            name="modelVariantsName"
+            value={productDetails.modelVariantsName}
+            onChange={handleChange}
+            type="text"
+            placeholder="Describe Model Variants Name"
+            className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -107,10 +108,16 @@ export default function AddProduct() {
             onChange={handleChange}
             type="text"
             placeholder="Describe URL Link"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-4xl  "
+            className="bg-neutral-700 h-9 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
           />
-            <div className="flex justify-end lg:mr-20 pr-20 mt-10 mb-6 sm:float-right ">
-              <button type ="submit" className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  ">
+            <div className="flex justify-between max-w-5xl pt-3">
+              <Link to="/">
+                <button className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  ">
+                 Cancel
+                </button>
+                </Link>
+
+                <button type ="submit" className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  ">
                 Add Product
                 </button>
             </div>

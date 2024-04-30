@@ -10,7 +10,7 @@ export default function
         <SideBar />
     <div className='flex-1 text-white'>
         <div>  <Header />  </div>
-        <div className='p-4'>{<Outlet/>}</div>
+        <div className='p-3'>{<Outlet/>}</div>
     </div>
         
     </div>
