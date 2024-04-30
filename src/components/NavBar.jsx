@@ -8,7 +8,7 @@ export default function Navbar({children}) {
 
       <div className='h-full flex flex-col text-white  border-r border-neutral-800 shadow-sm'>
           <div className='p-2 px-3 pb-2 flex justify-between items-center'>
-           <img src={`./logo${expand?"":"1"}.png`} alt='Logo' className={`overflow-hidden transition-all  ${expand ?"w-40": "w-10 pt-3 " }`} />
+           <img src={`./logo${expand?"":"1"}.svg`} alt='Logo' className={`overflow-hidden transition-all  ${expand ?"w-40": "w-5 pt-2 " }`} />
 
           
           </div>
