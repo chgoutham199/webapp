@@ -4,8 +4,8 @@ import {CircleHelp, Clipboard, Gem, Layers, LayoutDashboard, Mail, Search } from
 export default function SideBar() {
   return (
       <Navbar>
-        <SideBarItem icon={<Search size={20} />} text="Product Search"  />
-        <SideBarItem icon={<LayoutDashboard size={20} />} text="Dashboard"  />
+        <SideBarItem icon={<Search size={20} />} text="Search"  />
+        {/* <SideBarItem icon={<LayoutDashboard size={20} />} text="Dashboard"  /> */}
         <SideBarItem icon={<Layers size={20} />} text="Resources"  />
         <SideBarItem icon={<Mail size={20} />} text="Affiliated Programs"  />
         <SideBarItem icon={<Gem size={20} />} text="Earnings"  />
