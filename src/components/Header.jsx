@@ -42,7 +42,7 @@ export default function Header() {
   // const formattedDate = getFormattedDate();
   return (
     
-     <div className='flex p-4 h-16  items-center justify-between '>
+     <div className='flex p-4 h-16  items-center justify-between  '>
       <div className=''>
       
           <Link to='/'>
