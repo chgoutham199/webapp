@@ -1,5 +1,5 @@
 # Instructions
-  # Install Dependencies
+ Install Dependencies
  - npm i or npm install
- # Run the code
+ Run the code
  - npm run dev
