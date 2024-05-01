@@ -12,7 +12,7 @@ const Notification = () => {
     };
 
     return (
-        <div className="absolute right-0 top-full mt-1 w-96 bg-black text-white rounded-lg shadow-lg z-50 overflow-hidden">
+        <div className="absolute right-0 top-full mt-1 w-96 bg-neutral-900 text-white rounded-lg shadow-lg z-50 overflow-hidden">
             <div className="flex justify-between items-center px-4 py-2 border-b border-gray-700">
                 <h2 className="text-lg font-semibold">Notifications</h2>
                 <button onClick={clearAllNotifications} className="text-orange-600 hover:text-gray-400 text-sm">Clear all</button>
