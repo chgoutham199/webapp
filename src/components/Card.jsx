@@ -13,27 +13,27 @@ export default function Card(props) {
   return (
     <>
       <div className=' flex flex-col justify-center items-center'>
-        <div className='scrollbar-nav overflow-y-auto max-h-96'>
+        <div className='scrollbar-nav overflow-y-auto max-h-96 pr-4'>
           {filteredProducts.length > 0 ? (filteredProducts.map((product) => (
-            <div className="flex flex-row text-white cursor-pointer bg-gray-950 border-2 border-gray-700 mb-3 h-56 w-full">
+            <div className="flex flex-row text-zinc-300 cursor-pointer bg-[#141416] border-2 border-gray-700 mb-3 h-56 w-full">
               <div className="flex">
                 <div className="w-52 mr-5 bg-black">
                 </div>
-                <div className="w-2/3 mr-10 pt-2">
-                  <p className=' text-2xl ml-3'>{product.modelName}</p>
-                  <p className=' text-sm text-gray-700'>Laptop/Gaming Laptop</p>
+                <div className="w-2/3 mr-10 pt-2 ml-4">
+                  <p className=' text-xl mt-2 mb-0.5 ml-3'>{product.modelName}</p>
+                  <p className=' text-sm text-[#464646]'>Laptop/Gaming Laptop</p>
                   <div className="mt-3 flex flex-row">
-                    <div className="flex flex-col mr-2"><div className=""><p className=' text-sm text-gray-600'>Model</p></div><div className="">
-                      <p className=' text-white txt-md mt-1'>Titan GT76</p></div></div>
+                    <div className="flex flex-col mr-2"><div className=""><p className=' text-sm text-[#464646]'>Model</p></div><div className="">
+                      <p className=' text-zinc-300 txt-md mt-1'>Titan GT76</p></div></div>
                     <div className="border border-t-1 border-gray-600" style={{ height: "70px" }}/>
-                    <div className="flex flex-col mr-2 ml-2"><div className=""><p className=' text-sm text-gray-600'>Manufacturer</p></div><div className="">
-                      <p className=' text-md text-white'>Micro-Star <br /> International</p></div></div>
+                    <div className="flex flex-col mr-2 ml-2"><div className=""><p className=' text-sm text-[#464646]'>Manufacturer</p></div><div className="">
+                      <p className=' text-md text-zinc-300'>Micro-Star <br /> International</p></div></div>
                       <div className="border border-t-1 border-gray-600" style={{ height: "70px" }}/>
-                    <div className="flex flex-col mr-2 ml-2"> <div className=""><p className=' text-sm text-gray-600'>Manufactored</p></div><div className="">
-                      <p className=' text-md text-white text-center mt-1' >China</p></div></div>
+                    <div className="flex flex-col mr-2 ml-2"> <div className=""><p className=' text-sm text-[#464646]'>Manufactored</p></div><div className="">
+                      <p className=' text-md text-zinc-300 text-center mt-1' >China</p></div></div>
                   </div>
                   <div className=" flex flex-row mt-3">
-                    <div className=""><p className=' text-gray-600 text-md' >Variants</p></div>
+                    <div className=""><p className=' text-[#464646] text-md' >Variants</p></div>
                     <div className="flex flex-col ml-4">
                       <div className=""><a className=' text-orange-600 underline'>#i3-12700HX</a></div>
                       <div className=""><a className=' text-orange-600 underline'>#i3-12700HX</a></div>
@@ -48,10 +48,10 @@ export default function Card(props) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col pt-5 pr-6">
-                <div className=""><button className='bg-orange-600 p-2 mb-2'>Button 1</button></div>
-                <div className=""><button className='border border-orange-600 p-2 mb-2'>Button 2</button></div>
-                <div className="">  <button className='border border-orange-600 p-2 mb-2'>Button 3</button></div>
+              <div className="flex flex-col ml-14 pt-5 mt-5 pr-6">
+                <div className=""><button className='bg-orange-600 px-2 py-1 mb-6'>Button 1</button></div>
+                <div className=""><button className='border border-orange-600 px-2 py-1 mb-6'>Button 2</button></div>
+                <div className="">  <button className='border border-orange-600 px-2 py-1 mb-2'>Button 3</button></div>
               </div>
             </div>
           )
