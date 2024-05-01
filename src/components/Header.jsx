@@ -1,5 +1,4 @@
-import { BellDot } from 'lucide-react';
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { FaCaretDown } from 'react-icons/fa';
 import { IoIosNotificationsOutline } from 'react-icons/io';
@@ -7,7 +6,14 @@ import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 export default function Header() {
   const location = useLocation();
-
+  const [currentDate, setCurrentDate] = useState(new Date());
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 60000); // Updates every minute
+    return () => clearInterval(timer);
+  }, []);
+    const formattedDate=currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
   let headerText;
   switch (location.pathname) {
     case '/':
@@ -20,23 +26,23 @@ export default function Header() {
       headerText = 'Unknown';
   }
 
-  function getFormattedDate() {
-    const today = new Date();
-    const day = today.getDate();
-    const month = today.getMonth();
-    const year = today.getFullYear();
-    const weekday = today.getDay();
-    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const formattedWeekday = weekdays[weekday];
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const formattedMonth = months[month];
+  // function getFormattedDate() {
+  //   const today = new Date();
+  //   const day = today.getDate();
+  //   const month = today.getMonth();
+  //   const year = today.getFullYear();
+  //   const weekday = today.getDay();
+  //   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  //   const formattedWeekday = weekdays[weekday];
+  //   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  //   const formattedMonth = months[month];
   
-    return `${day} ${formattedMonth}, ${formattedWeekday}`;
-  }
-  const formattedDate = getFormattedDate();
+  //   return `${day} ${formattedMonth}, ${formattedWeekday}`;
+  // }
+  // const formattedDate = getFormattedDate();
   return (
     
-     <div className='flex p-4 h-16  items-center justify-between '>
+     <div className='flex p-4 h-16  items-center justify-between  '>
       <div className=''>
       
           <Link to='/'>
@@ -47,7 +53,7 @@ export default function Header() {
         </div>
          <div className='pr-2 mr-2'>
         <ul className='flex gap-4 w-full items-center '>
-          <li className='text-neutral-400 font-light text-xs cursor-default'>
+          <li className='text-neutral-400 font-normal text-xs cursor-default'>
               {formattedDate}
             </li>    
            <li className='hover:text-orange-500 cursor-pointer'>

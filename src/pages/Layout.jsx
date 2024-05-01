@@ -6,13 +6,12 @@ import Header from '../components/Header'
 export default function 
 () {
   return (
-    <div className='bg-black flex flex-row h-screen w-screen overflow-hidden'>
+    <div className='bg-black flex flex-row h-screen w-screen overflow-hidden float-left '>
         <SideBar />
     <div className='flex-1 text-white'>
-        <div>  <Header />  </div>
-        <div className='p-4'>{<Outlet/>}</div>
-    </div>
-        
+        <div className=''>  <Header />  </div>
+        <div className='p-3 '>{<Outlet/>}</div>
+        </div>
     </div>
   )
 }
