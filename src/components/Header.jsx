@@ -45,7 +45,7 @@ export default function Header() {
           <li className='text-neutral-400 font-normal text-xs cursor-default'>
               {formattedDate}
             </li>    
-           <li className='hover:text-orange-500 cursor-pointer'>
+           <li onClick={toggleNotification} className='hover:text-orange-500 cursor-pointer'>
               <IoIosNotificationsOutline  size={25} />
             </li> 
             {isNotificationOpen && <Notification />}
