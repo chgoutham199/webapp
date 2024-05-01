@@ -1,19 +1,20 @@
 import React, { createContext, useState ,useContext} from 'react'
 import {ChevronLeft, ChevronRight, CircleHelp, Clipboard, Ellipsis, Gem, LayoutDashboard, LogOut, Mail, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 const SidebarContext=createContext()
 export default function Navbar({children}) {
   const [expand,setExpand]=useState(true);
   return (
     <SidebarContext.Provider value={{expand}}>
 
-      <div className='h-full flex flex-col text-white  border-r border-neutral-800 shadow-sm'>
-          <div className='p-2 px-3 pb-2 flex justify-between items-center'>
-           <img src={`./logo${expand?"":"1"}.png`} alt='Logo' className={`overflow-hidden transition-all  ${expand ?"w-40": "w-10 pt-3 " }`} />
-
-          
+      <div className={`h-full flex flex-col  text-white ${expand ? "" : "justify-center items-center" } border-r border-neutral-800 shadow-sm`} >
+          <Link to="/">          <div className='pb-2  flex  items-center pt-3 '>
+           <img src={`./logo${expand?"":"1"}.svg`} alt='Logo' className={`overflow-hidden transition-all  ${expand ?"w-40": "w-10 " }`}  />
           </div>
+          </Link>
+
            
-           <ul className='flex flex-col pt-3'>
+           <ul className='flex flex-col pt-3  '>
               {children}
           </ul>
          <div className='mt-auto'>
