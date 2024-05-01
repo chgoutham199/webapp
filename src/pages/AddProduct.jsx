@@ -42,93 +42,101 @@ export default function AddProduct() {
     navigate("/");
   };
 
-  return ( 
-    <div className="scrollbar-nav">
-    <div className=" bg-neutral-900 rounded-lg  pt-2  max-w-7xl  mr-5 ml-5 overflow-y-auto ">
-      <form
-        onSubmit={handleSubmit}
-        className=" scrollbar-nav flex flex-col text-neutral-300  gap-4 p-3 m-3 pl-5 ml-5"
-      >
-        <div className="flex flex-col gap-3">
-          <label for="Brand Name" className=" font-normal ">
-            Brand Name
-          </label>
-          <input
-            name="brandName"
-            value={productDetails.brandName}
-            onChange={(e) =>
-              setProductDetails({
-                ...productDetails,
-                brandName: e.target.value,
-              })
-            }
-            type="text"
-            placeholder="Describe Brand Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
-          />
-        </div>
-        <div className="flex flex-col gap-3">
-          <label for="Brand Name" className="font-normal ">
-            Model Name
-          </label>
-          <input
-            name="modelName"
-            value={productDetails.modelName}
-            onChange={(e) =>
-              setProductDetails({
-                ...productDetails,
-                modelName: e.target.value,
-              })
-            }
-            type="text"
-            placeholder="Describe Model Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
-          />
-        </div>
+  return (
+      <div className=" bg-neutral-900 rounded-lg  pt-2  max-w-7xl  mr-7 ml-5 mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col text-neutral-300  gap-3   p-3 pl-8 ml-8 "
+        >  
+           <div className="scrollbar-nav overflow-y-auto max-h-screen mr-8 space-y-3 pb-3 mb-2">
+          <div className="flex flex-col gap-3 scrollbar-nav overflow-y-auto max-h-screen mr-10">
+            <label for="Brand Name" className=" font-normal ">
+              Brand Name
+            </label>
+            <input
+              name="brandName"
+              value={productDetails.brandName}
+              onChange={(e) =>
+                setProductDetails({
+                  ...productDetails,
+                  brandName: e.target.value,
+                })
+              }
+              type="text"
+              placeholder="Describe Brand Name"
+              className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
+            />
+          </div>
+          <div className="flex flex-col gap-3">
+            <label for="Brand Name" className="font-normal ">
+              Model Name
+            </label>
+            <input
+              name="modelName"
+              value={productDetails.modelName}
+              onChange={(e) =>
+                setProductDetails({
+                  ...productDetails,
+                  modelName: e.target.value,
+                })
+              }
+              type="text"
+              placeholder="Describe Model Name"
+              className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
+            />
+          </div>
 
-        <div className="flex flex-col gap-3">
-          <label for="Catalog Name" className="font-normal ">
-            Catalog Name
-          </label>
-          <input
-            name="catalogName"
-            value={productDetails.catalogName}
-            onChange={(e) =>
-              setProductDetails({
-                ...productDetails,
-                catalogName: e.target.value,
-              })
-            }
-            type="text"
-            placeholder="Describe Catalog Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
-          />
-        </div>
-        <div className="flex flex-col gap-3">
-          <label for="sub catalog name" className="font-normal ">
-            Sub Catalog Name
-          </label>
-          <input
-            name="subCatalogName"
-            value={productDetails.subCatalogName}
-            onChange={(e) =>
-              setProductDetails({
-                ...productDetails,
-                subCatalogName: e.target.value,
-              })
-            }
-            type="text"
-            placeholder="Describe Sub Catalog Name"
-            className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
-          />
-        </div>
-        <div className="flex flex-col gap-3">
-          {productDetails.modelVariants.map((variant, index) => (
-            <>
-              <div key={index} className="flex flex-col gap-3">
-                <label for="sub catalog name" className="font-normal ">
-                  Model Variant Name
-                </label>
+          <div className="flex flex-col gap-3">
+            <label for="Catalog Name" className="font-normal ">
+              Catalog Name
+            </label>
+            <input
+              name="catalogName"
+              value={productDetails.catalogName}
+              onChange={(e) =>
+                setProductDetails({
+                  ...productDetails,
+                  catalogName: e.target.value,
+                })
+              }
+              type="text"
+              placeholder="Describe Catalog Name"
+              className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
+            />
+          </div>
+          <div className="flex flex-col gap-3">
+            <label for="sub catalog name" className="font-normal ">
+              Sub Catalog Name
+            </label>
+            <input
+              name="subCatalogName"
+              value={productDetails.subCatalogName}
+              onChange={(e) =>
+                setProductDetails({
+                  ...productDetails,
+                  subCatalogName: e.target.value,
+                })
+              }
+              type="text"
+              placeholder="Describe Sub Catalog Name"
+              className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl  "
+            />
+          </div>
+          <div className="flex flex-col gap-3">
+            {productDetails.modelVariants.map((variant, index) => (
+              <>
+                <div key={index} className="flex  gap-3 items-center">
+                  <label for="sub catalog name" className="font-normal ">
+                    Model Variant Name
+                  </label>
+                  {productDetails.modelVariants.length > 1 && (
+                    <Trash2
+                      onClick={() => handleRemoveField(index)}
+                      size={15}
+                      className="hover:cursor-pointer hover:text-orange-400"
+                    />
+                  )}
+                </div>
                 <input
                   name="variantName"
                   value={variant.variantName}
@@ -137,49 +145,49 @@ export default function AddProduct() {
                   placeholder="Describe Model Variant Name"
                   className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl"
                 />
-                <div className="flex gap-3">
+                {/* </div> */}
+                <div className="flex flex-col gap-3">
                   <label for="Reference Link" className="font-normal ">
                     Product Reference Link
                   </label>
-                  {productDetails.modelVariants.length > 1 && (
-                    <Trash2
-                      onClick={() => handleRemoveField(index)}
-                      className="hover:cursor-pointer hover:text-orange-400"
-                    />
-                  )}
-                </div>
-                <input
-                  name="productReference"
-                  value={variant.productReference}
-                  onChange={(e) => handleChange(index, e)}
-                  type="text"
-                  placeholder="Describe Product Reference Link"
-                  className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl"
-                />
-              </div>
-            </>
-          ))}
-          <Plus
-            onClick={handleAddField}
-            className="hover:cursor-pointer hover:text-orange-400"
-          />
-        </div>
-        <div className="flex justify-between max-w-5xl pt-3">
-          <Link to="/">
-            <button className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  ">
-              Cancel
-            </button>
-          </Link>
 
-          <button
-            type="submit"
-            className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  "
-          >
-            Add Product
-          </button>
-        </div>
-      </form>
-    </div>
-    </div>
+                  <input
+                    name="productReference"
+                    value={variant.productReference}
+                    onChange={(e) => handleChange(index, e)}
+                    type="text"
+                    placeholder="Describe Product Reference Link"
+                    className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl"
+                  />
+                </div>
+              </>
+            ))}
+            <div className="flex  hover:cursor-pointer items-center justify-center max-w-5xl gap-2 border border-dashed border-spacing-10 p-2 border-orange-400 rounded-sm hover:text-orange-500 hover:opacity-65"
+                onClick={handleAddField}
+            >
+              <Plus
+                size={15}
+              />
+              Add more
+            </div>
+          </div>
+          <div className="flex justify-between max-w-5xl pt-3">
+            <Link to="/">
+              <button className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  ">
+                Cancel
+              </button>
+            </Link>
+
+            <button
+              type="submit"
+              className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  "
+            >
+              Add Product
+            </button>
+          </div>
+          </div>
+        </form>
+      </div>
+
   );
 }
