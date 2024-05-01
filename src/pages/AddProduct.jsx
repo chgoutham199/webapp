@@ -43,12 +43,11 @@ export default function AddProduct() {
   };
 
   return (
-      <div className=" bg-neutral-900 rounded-lg  pt-2  max-w-7xl  mr-7 ml-5 mx-auto">
+      <div className=" bg-neutral-900 rounded-lg  pt-4  max-w-7xl  mr-7  ml-5 mx-auto  pb-3">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col text-neutral-300  gap-3   p-3 pl-8 ml-8 "
+          className="flex flex-col text-neutral-300  gap-2   p-3 m-3  pl-10 ml-12 "
         >  
-           <div className="scrollbar-nav overflow-y-auto max-h-screen mr-8 space-y-3 pb-3 mb-2">
           <div className="flex flex-col gap-3 scrollbar-nav overflow-y-auto max-h-screen mr-10">
             <label for="Brand Name" className=" font-normal ">
               Brand Name
@@ -124,7 +123,7 @@ export default function AddProduct() {
           </div>
           <div className="flex flex-col gap-3">
             {productDetails.modelVariants.map((variant, index) => (
-              <>
+              <div className="flex flex-col gap-3 transition-all">
                 <div key={index} className="flex  gap-3 items-center">
                   <label for="sub catalog name" className="font-normal ">
                     Model Variant Name
@@ -160,9 +159,9 @@ export default function AddProduct() {
                     className="bg-neutral-700 h-8 rounded-sm placeholder-neutral-500 pl-5 max-w-5xl"
                   />
                 </div>
-              </>
+              </div>
             ))}
-            <div className="flex  hover:cursor-pointer items-center justify-center max-w-5xl gap-2 border border-dashed border-spacing-10 p-2 border-orange-400 rounded-sm hover:text-orange-500 hover:opacity-65"
+            <div className="flex  hover:cursor-pointer items-center justify-center max-w-5xl gap-2 border border-dashed border-spacing-10 p-1 border-orange-400 rounded-sm hover:text-orange-500 hover:opacity-65"
                 onClick={handleAddField}
             >
               <Plus
@@ -171,20 +170,19 @@ export default function AddProduct() {
               Add more
             </div>
           </div>
-          <div className="flex justify-between max-w-5xl pt-3">
+          <div className="flex justify-between max-w-5xl pt-5">
             <Link to="/">
-              <button className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  ">
+              <button className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm hover:opacity-50 ">
                 Cancel
               </button>
             </Link>
 
             <button
               type="submit"
-              className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm  "
+              className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm hover:opacity-50 "
             >
               Add Product
             </button>
-          </div>
           </div>
         </form>
       </div>

@@ -8,9 +8,9 @@ export default function
   return (
     <div className='bg-black flex flex-row h-screen w-screen overflow-y-auto '>
         <SideBar />
-    <div className='flex-1 text-white'>
+    <div className='flex-auto text-white'>
         <div className=''>  <Header />  </div>
-        <div className='p-3'>{<Outlet/>}</div>
+        <div className='p-2  scroll-smooth '>{<Outlet/>}</div>
         </div>
     </div>
   )
