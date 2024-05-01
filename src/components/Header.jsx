@@ -4,8 +4,10 @@ import { FaCaretDown } from 'react-icons/fa';
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
+import Notification from './Notification';
 export default function Header() {
   const location = useLocation();
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,27 +27,14 @@ export default function Header() {
     default:
       headerText = 'Unknown';
   }
-
-  // function getFormattedDate() {
-  //   const today = new Date();
-  //   const day = today.getDate();
-  //   const month = today.getMonth();
-  //   const year = today.getFullYear();
-  //   const weekday = today.getDay();
-  //   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  //   const formattedWeekday = weekdays[weekday];
-  //   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  //   const formattedMonth = months[month];
-  
-  //   return `${day} ${formattedMonth}, ${formattedWeekday}`;
-  // }
-  // const formattedDate = getFormattedDate();
+  const toggleNotification = () => {
+    setIsNotificationOpen(!isNotificationOpen);
+  };
   return (
     
-     <div className='flex p-4 h-16  items-center justify-between  '>
+     <div className='relative flex p-4 h-16  items-center justify-between  '>
       <div className=''>
-      
-          <Link to='/'>
+       <Link to='/'>
             <h1 className='font-semibold text-xl flex flex-wrap'>
               <span className='text-orange-500'>{headerText}</span>
             </h1>
@@ -59,6 +48,7 @@ export default function Header() {
            <li className='hover:text-orange-500 cursor-pointer'>
               <IoIosNotificationsOutline  size={25} />
             </li> 
+            {isNotificationOpen && <Notification />}
             <li className='flex flex-col hover:text-orange-500 '>
                  <span className='text-sm cursor-pointer'>Aisha Sharma</span>
                  <span className='text-xs font-extralight text-neutral-400'>Fresher</span>
