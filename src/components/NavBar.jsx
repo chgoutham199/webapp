@@ -12,8 +12,6 @@ export default function Navbar({children}) {
            <img src={`./logo${expand?"":"1"}.svg`} alt='Logo' className={`overflow-hidden transition-all  ${expand ?"w-40": "w-10 " }`}  />
           </div>
           </Link>
-
-           
            <ul className='flex flex-col pt-3  '>
               {children}
           </ul>
