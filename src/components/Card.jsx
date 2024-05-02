@@ -24,7 +24,7 @@ export default function Card(props) {
             <div className="flex flex-row text-zinc-300  bg-[#141416] rounded-lg mb-4 h-56 w-full hover:bg-neutral-800 ">
               <div className="flex flex-row">
                 <div className="w-52 h-full"/>
-                <div className="w-2/3 mr-10 pt-1 ml-3 border-l-2 rounded-xl border-neutral-700">
+                <div className="w-2/3 mr-10 pt-1 ml-3 border-l-2 rounded-sm border-neutral-700">
                   <div className=" flex flex-col mb-1 ml-2 mt-1 gap-1">
                   <p className=' text-xl ml-4'>{product.modelName}</p>
                   <p className=' text-xs ml-2 text-[#464646]'>Laptop/Gaming Laptop</p>
