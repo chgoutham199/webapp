@@ -45,8 +45,8 @@ export default function Header() {
     return (
         <div className='relative flex p-4 h-16 items-center justify-between mr-4'>
             <div className='flex items-center gap-3'>
-                <Link to='/' className=''>
-                {location.pathname=="/AddProduct" && <ChevronLeft className='text-orange-500' size={28}/> }
+                <Link to='/home' className=''>
+                {location.pathname=="/home/AddProduct" && <ChevronLeft className='text-orange-500' size={28}/> }
                 </Link>
                     <h1 className='font-semibold text-xl flex flex-wrap '>
                          <span className='text-orange-500'>{headerText}</span>

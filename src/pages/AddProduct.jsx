@@ -39,7 +39,7 @@ export default function AddProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addToCart(productDetails));
-    navigate("/");
+    navigate("/home");
   };
 
   return (

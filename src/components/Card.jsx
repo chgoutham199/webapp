@@ -22,25 +22,25 @@ export default function Card(props) {
         <div className='scrollbar-nav overflow-y-auto max-h-96 mt-1 scroll-smooth pr-3'>
           {filteredProducts.length > 0 ? (filteredProducts.map((product) => (
             <div className="group">
-            <div className="flex flex-row text-zinc-300  bg-[#141416] gradient-border rounded-lg mb-4 h-56 w-full group-hover:bg-neutral-800 ">
+            <div className="flex flex-row text-zinc-300  bg-[#141416] gradient-border rounded-lg mb-4 h-60 w-full group-hover:bg-neutral-800 ">
               <div className="flex flex-row">
-                <div className="w-52 h-full bg-black group-hover:bg-neutral-900"/>
+                <div className=" w-52 h-full bg-black group-hover:bg-neutral-900"/>
                 <div className="w-2/3 mr-10 pt-1 border-l-2 rounded-md border-neutral-700">
-                  <div className=" flex flex-col mb-1 ml-2 mt-1 gap-1">
-                  <p className=' text-xl ml-4'>{product.modelName}</p>
-                  <p className=' text-xs ml-2 text-[#464646]'>Laptop/Gaming Laptop</p>
+                  <div className=" flex flex-col mb-1 ml-2 mt-2">
+                  <p className=' text-lg ml-8'>{product.modelName}</p>
+                  <p className=' text-xs ml-3 text-[#454444]'>Laptop/Gaming Laptop</p>
                   </div>
-                  <div className="mt-3 flex flex-row ml-4">
-                    <div className="flex flex-col mr-4"><div className=""><p className=' text-xs text-[#464646]'>Model</p></div><div className="">
-                      <p className=' text-zinc-300 text-sm mt-2.5 '>Titan GT76</p></div></div>
-                    <div className="border border-t-1 border-gray-600" style={{ height: "65px" }}/>
-                    <div className="flex flex-col mr-4 ml-4"><div className=""><p className=' text-xs text-[#464646]'>Manufacturer</p></div><div className="">
-                      <p className=' text-sm mt-1.5 text-zinc-300'>Micro-Star <br /> International</p></div></div>
-                      <div className="border border-t-1 border-gray-600" style={{ height: "65px" }}/>
-                    <div className="flex flex-col ml-3"> <div className=""><p className=' text-xs text-[#464646]'>Manufactored</p></div><div className="">
-                      <p className=' text-sm text-zinc-300 text-center mt-2.5' >China</p></div></div>
+                  <div className="mt-3 flex flex-row ml-5">
+                    <div className="flex flex-col mr-7"><div className=""><p className=' text-sm text-[#464646]'>Model</p></div><div className="">
+                      <p className=' text-zinc-300 text-xs mt-2'>Titan GT76</p></div></div>
+                    <div className="border border-t-1 border-gray-600" style={{ height: "53px" }}/>
+                    <div className="flex flex-col mr-7 ml-3.5"><div className=""><p className=' text-sm text-[#464646]'>Manufacturer</p></div><div className="">
+                      <p className=' text-xs mt-1.5 text-zinc-300'>Micro-Star<br /> International</p></div></div>
+                      <div className="border border-t-1 border-gray-600" style={{ height: "53px" }}/>
+                    <div className="flex flex-col ml-3"> <div className=""><p className=' text-sm text-[#464646]'>Manufactored</p></div><div className="">
+                      <p className=' text-xs text-zinc-300 text-center mt-2.5' >China</p></div></div>
                   </div>
-                  <div className=" flex flex-col mt-6 ml-4">
+                  <div className=" flex flex-col mt-8 ml-4">
                     <div className="flex flex-row ml-1 gap-3">
                     <div className=""><p className=' text-[#464646] text-md' >Variants</p></div>
                       <div className=""><a className=' text-orange-600 underline text-xs'>#i3-12700HX</a></div>
