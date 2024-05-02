@@ -13,7 +13,7 @@ export default function Card(props) {
   return (
     <>
       <div className=' flex flex-col justify-center items-center'>
-        <div className='scrollbar-nav overflow-y-auto max-h-96 pr-4'>
+        <div className='scrollbar-nav overflow-y-auto max-h-80 pr-4'>
           {filteredProducts.length > 0 ? (filteredProducts.map((product) => (
             <div className="flex flex-row text-zinc-300 cursor-pointer bg-[#141416] border-2 border-gray-700 mb-3 h-56 w-full">
               <div className="flex">
