@@ -10,7 +10,7 @@ export default function
         <SideBar />
     <div className='flex-auto text-white'>
         <div className=''>  <Header />  </div>
-        <div className='  scroll-smooth '>{<Outlet/>}</div>
+        <div className=' scroll-smooth '>{<Outlet/>}</div>
         </div>
     </div>
   )
