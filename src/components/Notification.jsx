@@ -8,7 +8,7 @@ const Notification = () => {
     ]);
 
     const clearAllNotifications = () => {
-        setNotifications([]); // Clear the notifications array
+        setNotifications([]); 
     };
 
     return (
