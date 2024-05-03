@@ -39,7 +39,7 @@ export default function AddProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addToCart(productDetails));
-    navigate("/home");
+    navigate("/search");
   };
 
   return (
@@ -171,7 +171,7 @@ export default function AddProduct() {
             </div>
           </div>
           <div className="flex justify-between max-w-5xl pt-5">
-            <Link to="/">
+            <Link to="/search">
               <button className="bg-orange-500 text-neutral-300 font-semibold py-2 px-6 rounded-sm hover:opacity-50 ">
                 Cancel
               </button>

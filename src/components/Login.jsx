@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const handlenav=()=>{
-    navigate('/home')
+    navigate('/search')
   }
 
   const handlenave =()=>{

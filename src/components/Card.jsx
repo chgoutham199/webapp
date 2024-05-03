@@ -71,7 +71,7 @@ export default function Card(props) {
                   <span className='font-extralight text-xs'>Product Not Found</span>
                 </div>
                 <div className=" ml-20">
-                <Link to="/home/AddProduct">
+                <Link to="/search/AddProduct">
                   <div className='flex float-right '>
                     <button className='bg-orange-500 text-neutral-300 font-normal text-sm rounded-sm items-center px-2 py-1 h-7 mr-3 pr-3'>
                       Add Product
