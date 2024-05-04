@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LoginHeader from "../components/LoginHeader";
 import LoginFooter from "../components/LoginFooter";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { TriangleAlert } from 'lucide-react';
 import "../index.css";
 const Login = () => {
   const navigate = useNavigate();
@@ -20,35 +21,38 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setNotFound(!notFound)
   };
-
+  const [notFound,setNotFound]=useState(false);
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="bg-neutral-900 h-screen w-screen text-white  mx-auto">
       <LoginHeader />
-      <div className="justify-center flex items-center pt-8 mt-8 pb-2 ">
+      <div className="justify-center flex items-center pt-6 mt-8 pb-2 ">
         <img src="./logo.svg" className="w-60  " />
       </div>
       <div className="flex flex-col pt-3">
         <form
-          className="flex flex-col gap-5   items-center"
+          className="flex flex-col   items-center"
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-col gap-3 w-1/3 ">
+          <div className="flex flex-col relative  w-1/3 ">
             <input
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               type="text"
               placeholder="Enter E-mail Address"
-              className="bg-neutral-900 p-2 pl-3 border border-neutral-600 rounded-lg text-white  placeholder-neutral-600 placeholder:text-sm font-normal shadow-sm "
+              className={`bg-neutral-900 p-2 pl-3 border ${notFound ? "border-red-600" :"border-neutral-600" }  rounded-lg text-white  placeholder-neutral-600 placeholder:text-sm font-normal shadow-sm `}
               required
             />
+             {notFound &&  <TriangleAlert  className="absolute top-3 right-3 text-red-600 font-thin "  size={20} /> }
+            { notFound && <span className="text-xs mt-1 font-medium text-red-600">This e-mail is not registered with us !</span>}
           </div>
-          <div className="flex flex-col relative w-1/3">
+          <div className="flex flex-col  relative w-1/3 mt-6 mb-1">
             <input
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               type={showPassword ? "text" : "password"}
               placeholder="Enter Password"
-              className="bg-neutral-900 p-2 pl-3 border border-neutral-600  rounded-lg text-white placeholder-neutral-600 placeholder:text-sm font-normal shadow-sm"
+              className={`bg-neutral-900 p-2 pl-3 border ${notFound ? "border-red-600" :"border-neutral-600" }  rounded-lg text-white placeholder-neutral-600 placeholder:text-sm font-normal shadow-sm`}
               required
            />
             {showPassword ? (
@@ -62,15 +66,16 @@ const Login = () => {
                 onClick={handleToggle}
               />
             )}
+           {notFound && <span className="text-xs mt-1 font-medium text-red-600">This e-mail is not registered with us !</span> }
           </div>
-          <div className="flex flex-col items-end justify-end w-1/3">
-            <span className="text-orange-500 underline cursor-pointer hover:opacity-75 ">
+          <div className="flex flex-col items-end justify-end w-1/3 ">
+            <span className="text-orange-500 text-sm underline cursor-pointer hover:opacity-75 ">
               Forgot Password?
             </span>
           </div>
-          <div className=" flex flex-col gap-3 w-1/3 ">
+          <div className=" flex flex-col  w-1/3  mt-5">
             <button
-              className="p-2 bg-orange-500 rounded-lg hover:opacity-85"
+              className="p-2 bg-orange-500 rounded-lg hover:opacity-85 shadow-sm"
               type="submit"
             >
               Login
@@ -81,7 +86,7 @@ const Login = () => {
       <div className="pt-4">
         <hr className="custom-hr flex w-3/6 mt-5 mx-auto " />
       </div>
-      <div className="flex justify-center pt-4">
+      <div className="flex justify-center pt-2">
       Don't have an account?  <span className="text-orange-500  cursor-pointer hover:opacity-75 pl-1" onClick={handlenave}>Sign Up</span>
       </div>
       <LoginFooter />
