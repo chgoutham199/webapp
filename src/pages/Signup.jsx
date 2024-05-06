@@ -24,12 +24,14 @@ const Signup = () => {
 
   return (
     <div className="imaga flex justify-center items-center h-screen text-white">
-      <div className="w-3/4 flex justify-center ml-72 mt-9 p-5 mb-10">
+      <div className="w-3/4 flex justify-center ml-80 mt-9 p-5 mb-10">
         <form className="flex flex-col space-y-2">
           <div className="">
             <img src='./logo.svg' className='w-52 cursor-pointer ml-36' />
           </div>
-          <div className="h-0.5 w-full bg-gradient-to-r from-neutral-800 via-orange-800 to-orange-400"></div>
+          <div className="">
+          <hr className="custom-hr flex w-full mt-2 mb-3" />
+          </div>
           <div className="flex flex-col">
             <label htmlFor="username" className=" text-sm ml-0.5">Enter Full Name<label className=' text-orange-500 text-sm' > *</label> </label>
             <div className=" flex flex-row">
@@ -73,7 +75,7 @@ const Signup = () => {
             </select>
           </div>
           <div className="">
-            <label htmlFor="confirmPassword" className="font-bold">Select District <label className=' ml-1 text-orange-500'>*</label></label>
+            <label htmlFor="confirmPassword" className=" text-sm">Select District <label className=' ml-1 text-orange-500'>*</label></label>
             <select className="px-4 py-2 border border-neutral-600 rounded-lg bg-neutral-800 w-full mt-1 text-gray-400">
               <option value="">Male</option>
               <option value="">Female</option>
@@ -81,14 +83,15 @@ const Signup = () => {
             </select>
           </div>
           <div className="">
-            <label htmlFor="phoneNumber" className="font-bold">Select State <label className=' ml-1 text-orange-500'>*</label></label>
+            <label htmlFor="phoneNumber" className="text-sm">Select State <label className=' ml-1 text-orange-500'>*</label></label>
             <select className="px-4 py-2 border border-neutral-600 rounded-lg bg-neutral-800 w-full mt-1 text-gray-400">
               <option value="">Male</option>
               <option value="">Female</option>
               <option value="">Others</option>
             </select>
           </div>
-          <div className=""></div>
+          <div className="">
+          </div>
         </form>
       </div>
     </div>
