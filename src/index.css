@@ -16,11 +16,33 @@
   border-radius: 6px;
 }
 
+.scrollbar-nav1::-webkit-scrollbar{
+  width: 0px;
+}
+
+.scrollbar-nav1::-webkit-scrollbar-thumb{
+  background-color: #464646;
+  border-radius: 3px;
+}
+
+.scrollbar-nav1::-webkit-scrollbar-track{
+  background-color: #212121;
+  border-radius: 6px;
+}
+
+
 .gradient-border {
   border-width: 2px;
   border-image: linear-gradient( #3b3b3b, #262626, #2a2a2a);
   border-image-slice: 1;
 }
+/* .gradient-border1{
+  border-width: 2px;
+  border-image: linear-gradient( #595858, #262626, #555454);
+  border-image-slice: 1;
+  border-radius: 10rem;
+  overflow: hidden;
+} */
 
 .imaga{
     background-image: url("./assets/Signup.png");

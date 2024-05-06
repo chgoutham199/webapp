@@ -11,8 +11,8 @@ export default function SideBar() {
         <SideBarItem icon={<Gem size={20} />} text="Earnings"  />
         <SideBarItem icon={<Clipboard size={20} />} text="Guidelines"  />
         <SideBarItem icon={<CircleHelp size={20} />} text="Help Centre /FAQs"  />
-         
-        
+
+
       </Navbar>
       
   )
