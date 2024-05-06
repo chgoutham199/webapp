@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../index.css'
 import { updateCount } from '../redux/productSlice';
+import { useNavigate } from 'react-router-dom';
 export default function Card(props) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = props.title;
   const products = useSelector((state) => state.products.products);
@@ -11,7 +13,9 @@ export default function Card(props) {
     const searchWords = data.toLowerCase().split(' ');
     return searchWords.some(word => product.modelName.toLowerCase().includes(word));
   }) : [];
-
+  const handleAddReviewClick = () => {
+    navigate('/search/product-variants'); 
+};
   useEffect(() => {
     dispatch(updateCount(filteredProducts.length));
   }, [dispatch,filteredProducts.length]);
@@ -55,7 +59,7 @@ export default function Card(props) {
                 </div>
               </div>
               <div className="flex flex-col ml-12 mt-10 mr-5 gap-7">
-                <div className=""><button className=' text-white bg-orange-600 text-xs px-2.5 py-2' >Add Review</button></div>
+                <div className=""><button className=' text-white bg-orange-600 text-xs px-2.5 py-2' onClick={handleAddReviewClick} >Add Review</button></div>
                 <div className=""><button className=' text-white border border-orange-600 text-xs px-3.5 py-2' >Add Asset</button></div>
                 <div className=""><button className=' text-white border border-orange-600 text-xs px-5 py-2 ' >Validate</button></div>
               </div>

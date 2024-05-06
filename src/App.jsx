@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Forgotlayout from "./pages/forgotlayout";
 import ForgotEmail from "./pages/ForgotEmail";
-
+import ProductVariants from "./pages/ProductVariants";
 import Layout from "./pages/Layout";
 import  Home  from "./pages/Home"
 import AddProduct from "./pages/AddProduct";
@@ -22,6 +22,7 @@ export default function App() {
         <Route path="/search" element={<Layout/>} >
         <Route index element={<Home/>} />
         <Route path="/search/AddProduct" element={<AddProduct/>} />
+        <Route path="/search/product-variants" element={<ProductVariants />} />
         </Route>
       </Routes>
     </BrowserRouter>
