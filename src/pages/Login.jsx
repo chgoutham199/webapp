@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginHeader from "../components/LoginHeader";
 import LoginFooter from "../components/LoginFooter";
@@ -6,15 +6,19 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { TriangleAlert } from 'lucide-react';
 import "../index.css";
 const Login = () => {
+  const emailRef = useRef();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const handlenav = () => {
     navigate("/search");
   };
   console.log(formData)
-
-  const handlenave = () => {
-    navigate("/signup");
+  useEffect(()=>{
+    emailRef.current.focus();
+  
+  },[])
+  const handleForgot = () => {
+    navigate("/forgotpassword");
   };
   const handleToggle = () => {
     setShowPassword(!showPassword);
@@ -23,6 +27,9 @@ const Login = () => {
     e.preventDefault();
     setNotFound(!notFound)
     handlenav();
+  };
+  const handleSignUP = () => {
+    navigate("/signup");
   };
   const [notFound,setNotFound]=useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -39,6 +46,7 @@ const Login = () => {
         >
           <div className="flex flex-col relative  w-1/3 ">
             <input
+              ref={emailRef}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               type="text"
               placeholder="Enter E-mail Address"
@@ -70,7 +78,7 @@ const Login = () => {
            {notFound && <span className="text-xs mt-1 font-medium text-red-600">This entered password is wrong!</span> }
           </div>
           <div className="flex flex-col items-end justify-end w-1/3 ">
-            <span className="text-orange-500 text-sm underline cursor-pointer hover:opacity-75 ">
+            <span className="text-orange-500 text-sm underline cursor-pointer hover:opacity-75 " onClick={handleForgot}>
               Forgot Password?
             </span>
           </div>
@@ -85,10 +93,10 @@ const Login = () => {
         </form>
       </div>
       <div className="pt-4">
-        <hr className="custom-hr flex w-3/6 mt-5 mx-auto " />
+      <hr className="custom-hr flex w-3/6 mt-5 mx-auto " />
       </div>
       <div className="flex justify-center pt-2">
-      Don't have an account?  <span className="text-orange-500  cursor-pointer hover:opacity-75 pl-1" onClick={handlenave}>Sign Up</span>
+      Don't have an account?  <span className="text-orange-500  cursor-pointer hover:opacity-75 pl-1" onClick={handleSignUP}>Sign Up</span>
       </div>
       <LoginFooter />
     </div>
