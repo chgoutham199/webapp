@@ -22,6 +22,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setNotFound(!notFound)
+    handlenav();
   };
   const [notFound,setNotFound]=useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -66,7 +67,7 @@ const Login = () => {
                 onClick={handleToggle}
               />
             )}
-           {notFound && <span className="text-xs mt-1 font-medium text-red-600">This e-mail is not registered with us !</span> }
+           {notFound && <span className="text-xs mt-1 font-medium text-red-600">This entered password is wrong!</span> }
           </div>
           <div className="flex flex-col items-end justify-end w-1/3 ">
             <span className="text-orange-500 text-sm underline cursor-pointer hover:opacity-75 ">
@@ -74,7 +75,7 @@ const Login = () => {
             </span>
           </div>
           <div className=" flex flex-col  w-1/3  mt-5">
-            <button
+            <button 
               className="p-2 bg-orange-500 rounded-lg hover:opacity-85 shadow-sm"
               type="submit"
             >
