@@ -52,3 +52,51 @@
     width: 100vw;
     height: 100vh;
 }
+.custom-hr {
+  position: relative;
+  border: none;
+  height: 0.5px;
+  box-shadow: 0px 0px 10px #fc4d03;
+}
+
+.custom-hr::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid;
+  border-image: linear-gradient(to left, #ff55009b, #ff5500 75%, #ff4102) 1;
+}
+
+.custom-hr::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to left, #ff8000, #FFA500 50%, #eb8500);
+}
+
+.custom-hr::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid;
+  border-image: linear-gradient(to left, #FFA500, #ff7700 50%, #f46c04) 1;
+}
+
+.custom-hr::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to left, #FFA500, #FFA500 0%, #1a1a21);
+}

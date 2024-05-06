@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
+    <Routes>
       <Route path="/" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
         <Route path="/search" element={<Layout/>} >
