@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 const initialVariants = [
   { id: 1, description: 'i3-12700HX (RTX 3050)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
   { id: 2, description: 'i5-12800HX (RTX 3060)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
@@ -7,16 +6,13 @@ const initialVariants = [
   { id: 4, description: 'i7-12900HX (RTX 3070ti)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
   { id: 5, description: 'i9-12800HX (RTX 3080ti)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true }
 ];
-
 const ProductVariants = () => {
   const [variants, setVariants] = useState(initialVariants);
-
   const addVariant = () => {
     const newVariant = { id: variants.length + 1, description: 'New Variant', capabilities: 'Custom', next: false };
     setVariants([...variants, newVariant]);
   };
-
-  return (
+return (
     <div className="bg-black text-white min-h-screen flex">
       <div className="flex">
         <aside className="w-[336px] h-[872px] bg-gray-800 p-4 space-y-4 overflow-y-auto">
@@ -41,18 +37,14 @@ const ProductVariants = () => {
         <div className="col-span-1">
           <p className="text-sm">Device category:</p>
           <p className="text-sm font-semibold">Gaming Laptop</p>
-          
         </div>
         <div className="col-span-1">
-       
         <p className="text-sm">Form factor:</p>
         <p className="text-sm font-semibold">Notebook</p>
-         
         </div>
         <div className="col-span-1">
         <p className="text-sm">Manufacturer:</p>
         <p className="text-sm font-semibold">Micro-star International</p>
-        
         </div>
         <div className="col-span-1">
         <p className="text-sm">Manufactured:</p>
