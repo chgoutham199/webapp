@@ -45,7 +45,7 @@
 } */
 
 .imaga{
-    background-image: url("./assets/Signup.png");
+    background-image: url("./bg.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
