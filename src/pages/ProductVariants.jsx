@@ -1,3 +1,4 @@
+import { Bold } from 'lucide-react';
 import React, { useState } from 'react';
 const initialVariants = [
   { id: 1, description: 'i3-12700HX (RTX 3050)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
@@ -52,29 +53,43 @@ return (
         </div>
       </div>
         </aside>
-        <main className="flex-2 p-4">
-          <div className="grid grid-cols-3 gap-2">
-            {variants.map(variant => (
-              <div key={variant.id} className="bg-gray-900 p-4 rounded space-y-2" style={{ width: '321px', height: '274px' }}>
-                <div className="bg-gray-800 p-2 rounded">
-                  <h3 className="text-lg font-semibold">{variant.description}</h3>
-                </div>
-                <p className="text-xs font-semibold uppercase tracking-wide mb-4 text-gray-400">Product Data Capability</p>
-                <div className="flex justify-between items-center mt-5">
-                  {['Add Asset', 'Validate', 'Go Live'].map((action, index) => (
-                    <div key={index} className="text-center space-y-1 mt-2">
-                      <button className="bg-gray-700 text-orange-500 px-4 py-2 rounded text-xs font-medium ">{action}</button>
-                      <div className="w-full h-0.5 bg-orange-500 rounded mt-5"></div>
-                    </div>
-                  ))}
-                </div>
-                <button className="w-full bg-orange-500 text-white py-2 rounded text-sm mt-100">Next</button>
+        <main className="flex-1 p-4">
+        <div className="grid grid-cols-3 gap-4">
+          {variants.map(variant => (
+            <div key={variant.id} className="bg-gray-900 p-4 rounded space-y-2" style={{ width: '321px', height: '274px' }}>
+              <div className="bg-gray-800 p-2 rounded">
+                <h3 className="text-lg font-semibold">{variant.description}</h3>
               </div>
-            ))}
-          </div>
-          <button onClick={addVariant} className="mt-4 w-full bg-orange-500 text-white py-2 rounded text-sm">Add More Variants</button>
-        </main>
-      </div>
+              <p className="text-xs font-semibold uppercase tracking-wide mb-4 text-gray-400">Product Data Capability</p>
+              <div className="flex justify-between items-center mt-5">
+                {['Add Asset', 'Validate', 'Go Live'].map((action, index) => (
+                  <div key={index} className="text-center space-y-1 mt-2">
+                    <button className="bg-gray-700 text-orange-500 px-4 py-2 rounded text-xs font-medium">{action}</button>
+                    <div className="w-full h-0.5 bg-orange-500 rounded mt-5"></div>
+                  </div>
+                ))}
+              </div>
+              <button className="w-full bg-orange-500 text-white py-2 rounded text-sm mt-100">Next</button>
+            </div>
+          ))}
+          <button onClick={addVariant} style={{
+              width: '321px',
+              height: '274px',
+              backgroundColor: '#251B16',
+              color: 'white',
+              borderRadius: '4px',
+              border: '3.5px dashed #F37413',
+              cursor: 'pointer',
+              fontSize: '26px',
+              fontStyle:'Bold',
+            }}
+            className="flex justify-center items-center"
+          >
+            + Add More Variants
+          </button>
+        </div>
+      </main>
+    </div>
     </div>
   );
 };
