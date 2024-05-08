@@ -12,6 +12,8 @@ import ForgotOtp from "./pages/ForgotOtp";
 import Signupage25g from "./components/Signupage25g";
 import Signuppage2g from "./components/Signuppage2g";
 import SignupLastpage from "./components/SignupLastpage";
+import Signuppage25less from "./components/Signuppage25less";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -22,6 +24,7 @@ export default function App() {
           <Route path="/forgotpassword/verifyotp" element={<ForgotOtp />} />
         </Route>
         <Route path="/signup" element={<Signup />}/>
+        <Route path="/signup25l" element={<Signuppage25less/>}/>
         <Route path="/signupg" element={<Signupage25g />} />
         <Route path="/signup2g" element={<Signuppage2g/>}/>
         <Route path="/signuplast" element={<SignupLastpage/>}/>
