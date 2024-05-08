@@ -13,6 +13,7 @@ const ProductVariants = () => {
     const newVariant = { id: variants.length + 1, description: 'New Variant', capabilities: 'Custom', next: false };
     setVariants([...variants, newVariant]);
   };
+  const rows = Math.ceil((variants.length + 1) / 3);
 return (
     <div className="bg-black text-white min-h-screen flex">
       <div className="flex">
@@ -86,6 +87,23 @@ return (
             className="flex justify-center items-center"
           >
             + Add More Variants
+          </button>
+          <button style={{
+              gridColumn: '4 / -1', // Span across all columns
+              gridRowStart: rows + 2, // Start on the calculated row
+              backgroundColor: '#F37413',
+              color: 'white',
+              borderRadius: '4px',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              height: '48px', // Adjusted height based on typical UI button sizes
+              width: '163px'
+            }}
+            className="w-full text-center"
+          >
+            Confirm
           </button>
         </div>
       </main>
