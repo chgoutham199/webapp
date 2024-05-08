@@ -89,7 +89,7 @@ return (
             + Add More Variants
           </button>
           <button style={{
-              gridColumn: '3 / -1', // Span across all columns
+              gridColumn: '4 / -1', // Span across all columns
               gridRowStart: rows + 2, // Start on the calculated row
               backgroundColor: '#F37413',
               color: 'white',
