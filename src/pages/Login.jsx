@@ -29,7 +29,7 @@ const Login = () => {
     handlenav();
   };
   const handleSignUP = () => {
-    navigate("/signup");
+    navigate("/signupValidate");
   };
   const [notFound,setNotFound]=useState(false);
   const [showPassword, setShowPassword] = useState(false);
