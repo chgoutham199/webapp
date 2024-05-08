@@ -48,7 +48,7 @@ export default function AddProduct() {
           onSubmit={handleSubmit}
           className="flex flex-col text-neutral-300  gap-2   p-3 m-3  pl-10 ml-12 "
         >  
-          <div className="flex flex-col gap-3 scrollbar-nav overflow-y-auto max-h-screen mr-10">
+          <div className="flex flex-col gap-3">
             <label for="Brand Name" className=" font-normal ">
               Brand Name
             </label>

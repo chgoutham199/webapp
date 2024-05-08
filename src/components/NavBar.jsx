@@ -1,9 +1,14 @@
 import React, { createContext, useState ,useContext} from 'react'
 import {ChevronLeft, ChevronRight, CircleHelp, Clipboard, Ellipsis, Gem, LayoutDashboard, LogOut, Mail, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const SidebarContext=createContext()
 export default function Navbar({children}) {
   const [expand,setExpand]=useState(true);
+  const navigate=useNavigate();
+  const handleLogout=()=>{
+        navigate("/")
+  }
   return (
     <SidebarContext.Provider value={{expand}}>
 
@@ -19,7 +24,7 @@ export default function Navbar({children}) {
           <div className='flex'>
          <button className={`hover:text-orange-500 ${expand || "flex items-center py-2 px-2 my-1"}`} onClick={()=>setExpand(!expand)} >
           {expand ? <ChevronLeft  size={30}/> : <ChevronRight  size={30}/>}
-          </button>{expand &&<SideBarItem icon={<LogOut size={20} />} text="Logout" className />}
+          </button>{expand &&<div onClick={handleLogout} ><SideBarItem  icon={<LogOut size={20} />} text="Logout" /></div>}
           </div>
          <SideBarItem icon={<Ellipsis size={20} />} text="Give feedback"  />
          {expand && <SideBarItem icon={<Ellipsis size={20} />} text="Refer an engineer"  />}

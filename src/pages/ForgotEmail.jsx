@@ -22,7 +22,7 @@ import {useNavigate} from 'react-router-dom';
         },[])   
 
       return (
-        <div className='flex flex-col mt-10 pt-10 '>
+        <div className='flex flex-col mt-12 pt-10 '>
            <div className='flex flex-col  gap-2 '>
               <span className='text-orange-400 font-semibold text-2xl mx-auto shadow-md'>Password Validation </span>
               <div className='flex flex-col justify-center mx-auto'>

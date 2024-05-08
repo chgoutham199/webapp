@@ -9,6 +9,7 @@ import AddProduct from "./pages/AddProduct";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ForgotOtp from "./pages/ForgotOtp";
+import SetPassword from "./pages/SetPassword";
 import Signupage25g from "./components/Signupage25g";
 import Signuppage2g from "./components/Signuppage2g";
 export default function App() {
@@ -19,6 +20,8 @@ export default function App() {
         <Route path="/forgotpassword" element={<Forgotlayout />}>
           <Route index element={<ForgotEmail />} />
           <Route path="/forgotpassword/verifyotp" element={<ForgotOtp />} />
+          <Route path="/forgotpassword/setpassword" element={< SetPassword />} />
+          
         </Route>
         <Route path="/signup" element={<Signup />} />
         <Route path="/signupg" element={<Signupage25g />} />
