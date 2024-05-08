@@ -12,6 +12,7 @@ import ForgotOtp from "./pages/ForgotOtp";
 import SetPassword from "./pages/SetPassword";
 import Signupage25g from "./components/Signupage25g";
 import Signuppage2g from "./components/Signuppage2g";
+import SignupLastpage from "./components/SignupLastpage";
 export default function App() {
   return (
     <BrowserRouter>
@@ -23,9 +24,10 @@ export default function App() {
           <Route path="/forgotpassword/setpassword" element={< SetPassword />} />
           
         </Route>
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />}/>
         <Route path="/signupg" element={<Signupage25g />} />
         <Route path="/signup2g" element={<Signuppage2g/>}/>
+        <Route path="/signuplast" element={<SignupLastpage/>}/>
         <Route path="/search" element={<Layout />} >
           <Route index element={<Home />} />
           <Route path="/search/AddProduct" element={<AddProduct />} />
