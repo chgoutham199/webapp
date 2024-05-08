@@ -74,8 +74,10 @@ export default function SetPassword() {
   };
  const handleSubmit = (e) => {
     e.preventDefault();
+    if(password==password1 && conditons.length && conditons.upper && conditons.number && conditons.special && password.length>=8){
      navigate("/");  
  }
+}
   return (
     <div className="flex flex-col mt-3 pt-3 ">
       <div className="flex flex-col  gap-2 ">
@@ -106,15 +108,17 @@ export default function SetPassword() {
                 notFound ? "border-red-600" : "border-neutral-600"
               }  rounded-lg text-white placeholder-neutral-600 placeholder:text-sm font-normal shadow-sm`}
               required
+              minLength={8}
+              maxLength={20}
             />
             {showPassword ? (
               <FiEyeOff
-                className="absolute top-10 right-4 text-neutral-500 cursor-pointer"
+                className="absolute top-9 right-4 text-neutral-500 cursor-pointer"
                 onClick={handleToggle}
               />
             ) : (
               <FiEye
-                className="absolute top-10 right-4 text-neutral-500 cursor-pointer"
+                className="absolute top-9 right-4 text-neutral-500 cursor-pointer"
                 onClick={handleToggle}
               />
             )}
@@ -209,19 +213,22 @@ export default function SetPassword() {
                 notFound ? "border-red-600" : "border-neutral-600"
               }  rounded-lg text-white placeholder-neutral-600 placeholder:text-sm font-normal shadow-sm`}
               required
+              minLength={8}
+              maxLength={20}
             />
             {showPassword1 ? (
               <FiEyeOff
-                className="absolute top-10 right-4 text-neutral-500 cursor-pointer"
+                className="absolute top-9 right-4 text-neutral-500 cursor-pointer"
                 onClick={handleToggle1}
               />
             ) : (
               <FiEye
-                className="absolute top-10 right-4 text-neutral-500 cursor-pointer"
+                className="absolute top-9 right-4 text-neutral-500 cursor-pointer"
                 onClick={handleToggle1}
+              
               />
             )}
-           {password ===password1 && <span className="text-green-500  font-semibold" style={{fontSize:"11px"}}>PASSWORD MATCHED</span> }
+           {password ===password1 && password!="" && <span className="text-green-500  font-semibold" style={{fontSize:"11px"}}>PASSWORD MATCHED</span> }
           </div>
 
           <div className="flex  justify-between w-screen mx-auto pt-6">
