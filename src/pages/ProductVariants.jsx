@@ -94,8 +94,8 @@ return (
             + Add More Variants
           </button>
           <button style={{
-              gridColumn: '4 / -1', // Span across all columns
-              gridRowStart: rows + 2, // Start on the calculated row
+              gridColumn: '4 / -1',
+              gridRowStart: rows + 2, 
               backgroundColor: '#F37413',
               color: 'white',
               borderRadius: '4px',
@@ -103,7 +103,7 @@ return (
               cursor: 'pointer',
               fontSize: '16px',
               fontWeight: 'bold',
-              height: '48px', // Adjusted height based on typical UI button sizes
+              height: '48px',
               width: '163px'
             }}
             className="w-full text-center"
