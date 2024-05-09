@@ -1,4 +1,5 @@
 import { Bold } from 'lucide-react';
+import { useNavigate } from 'react-router';
 import React, { useState } from 'react';
 const initialVariants = [
   { id: 1, description: 'i3-12700HX (RTX 3050)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
@@ -13,6 +14,10 @@ const ProductVariants = () => {
     const newVariant = { id: variants.length + 1, description: 'New Variant', capabilities: 'Custom', next: false };
     setVariants([...variants, newVariant]);
   };
+  const navigate=useNavigate()
+  const handleClick =()=>{
+      navigate('/search/product-variants2')
+  }
   const rows = Math.ceil((variants.length + 1) / 3);
 return (
     <div className="bg-black text-white min-h-screen flex">
@@ -89,8 +94,8 @@ return (
             + Add More Variants
           </button>
           <button style={{
-              gridColumn: '4 / -1', // Span across all columns
-              gridRowStart: rows + 2, // Start on the calculated row
+              gridColumn: '4 / -1',
+              gridRowStart: rows + 2, 
               backgroundColor: '#F37413',
               color: 'white',
               borderRadius: '4px',
@@ -98,10 +103,11 @@ return (
               cursor: 'pointer',
               fontSize: '16px',
               fontWeight: 'bold',
-              height: '48px', // Adjusted height based on typical UI button sizes
+              height: '48px',
               width: '163px'
             }}
             className="w-full text-center"
+            onClick={handleClick}
           >
             Confirm
           </button>
