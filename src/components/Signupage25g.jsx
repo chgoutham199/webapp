@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../index.css";
 
 const Signupage25g = () => {
+    const [nav,setNav] = useState(false)
     const [formData, setFormData] = useState({
         designation: '',
         experience: '',
@@ -31,7 +32,7 @@ const Signupage25g = () => {
                 setError(prevState => ({ ...prevState, [key]: true }));
             }
         });
-        if (!hasError) {
+        if (!hasError && nav) {
             setError(false);
             navigate('/signup2g');
         }
@@ -39,9 +40,24 @@ const Signupage25g = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-        setError({ ...Error, [name]: false });
+        if (name === 'engineeringSkills') {
+            const skills = value.split(',').map(skill => skill.trim());
+            const skillCount = skills.filter(skill => skill !== '').length;
+            if (skillCount >= 5) {
+                setFormData({ ...formData, [name]: value });
+                setError({ ...Error, [name]: false });
+                setNav(true)
+            } else {
+                setNav(false)
+                setFormData({ ...formData, [name]: value });
+                setError({ ...Error, [name]: true });
+            }
+        } else {
+            setFormData({ ...formData, [name]: value });
+            setError({ ...Error, [name]: false });
+        }
     };
+    
 
     return (
         <div className="imaga bg-neutral-900 flex justify-center items-center h-screen text-white">
@@ -74,7 +90,7 @@ const Signupage25g = () => {
                     <div className="">
                         <label htmlFor="engineeringSkills" className=" text-sm ml-0.5">Engineering Skills<label className=' text-orange-500 text-sm' > *</label> </label>
                         <div className=" flex flex-row">
-                            <input type="text" id="engineeringSkills" name="engineeringSkills" placeholder='Eg. Quality Assurance' className={`px-4 py-2 border ${!Error.engineeringSkills ? 'border-neutral-600' : 'border-red-500'} rounded-lg bg-neutral-900 w-full mt-1`} value={formData.engineeringSkills} onChange={handleChange} />
+                            <input type="text" id="engineeringSkills" name="engineeringSkills" placeholder='Eg. Quality Assurance, Quality Manager' className={`px-4 py-2 border ${!Error.engineeringSkills ? 'border-neutral-600' : 'border-red-500'} rounded-lg bg-neutral-900 w-full mt-1`} value={formData.engineeringSkills} onChange={handleChange} />
                         </div>
                         <label className={` text-sm ${!Error.engineeringSkills ? 'text-white' : 'text-red-500'} ml-1 mt-0.5`}>Select up to 5 skills you prefer</label>
                     </div>

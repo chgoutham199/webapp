@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../index.css";
 
 const Signuppage2g = () => {
+    const [nav,setNav] = useState(false)
     const [formData, setFormData] = useState({
         designation: '',
         currentDesignation: '',
@@ -26,7 +27,7 @@ const Signuppage2g = () => {
                 setError(prevState => ({ ...prevState, [key]: true })); 
             }
         });
-        if (!hasError) {
+        if (!hasError && nav) {
             setError(false);
             navigate('/signuplast');
         }
@@ -34,9 +35,24 @@ const Signuppage2g = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-        setError({ ...Error, [name]: false });
+        if (name === 'engineeringSkills') {
+            const skills = value.split(',').map(skill => skill.trim());
+            const skillCount = skills.filter(skill => skill !== '').length;
+            if (skillCount >= 5) {
+                setFormData({ ...formData, [name]: value });
+                setError({ ...Error, [name]: false });
+                setNav(true)
+            } else {
+                setNav(false)
+                setFormData({ ...formData, [name]: value });
+                setError({ ...Error, [name]: true });
+            }
+        } else {
+            setFormData({ ...formData, [name]: value });
+            setError({ ...Error, [name]: false });
+        }
     };
+    
 
     return (
         <div className="imaga bg-neutral-900 flex justify-center items-center h-screen text-white">
