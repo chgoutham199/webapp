@@ -8,7 +8,7 @@ const Signuppage25less = () => {
         yeareducation: '',
         instituteName: '',
         catalogvariants: '',
-        catalogskillstatus:''
+        catalogskillstatus: ''
     });
     const [Error, setError] = useState({
         education: false,
@@ -18,11 +18,12 @@ const Signuppage25less = () => {
         catalogskillstatus: false
     });
     const navigate = useNavigate();
-    const Ref=useRef();
+    const [customOptions, setCustomOptions] = useState([]);
+    const Ref = useRef();
 
-    useEffect(()=>{
+    useEffect(() => {
         Ref.current.focus()
-    },[])
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +31,7 @@ const Signuppage25less = () => {
         Object.entries(formData).forEach(([key, value]) => {
             if (!value) {
                 hasError = true;
-                setError(prevState => ({ ...prevState, [key]: true })); 
+                setError(prevState => ({ ...prevState, [key]: true }));
             }
         });
         if (!hasError) {
@@ -42,6 +43,13 @@ const Signuppage25less = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         setError({ ...Error, [name]: false });
+    };
+
+    const handleAddOption = () => {
+        if (formData.catalogvariants.trim() !== "") {
+            setCustomOptions([...customOptions, formData.catalogvariants.trim()]);
+            setFormData({ ...formData, catalogvariants: '' });
+        }
     };
 
     return (
@@ -77,10 +85,14 @@ const Signuppage25less = () => {
                             <label htmlFor="catalogvariants" className="text-sm">Catalog Variants<label className=' ml-0.5 text-orange-500'>*</label></label>
                             <select id="catalogvariants" name="catalogvariants" className={`px-4 py-2 border ${!Error.catalogvariants ? 'border-neutral-600' : 'border-red-500'} rounded-lg bg-neutral-900 w-full mt-1 text-gray-400`} value={formData.catalogvariants} onChange={handleChange}>
                                 <option value="">Catalog Variants</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Others">Others</option>
+                                {customOptions.map((option, index) => (
+                                    <option key={index} value={option}>{option}</option>
+                                ))}
                             </select>
+                            <div className="flex mt-2">
+                                <input type="text" name="catalogvariants" placeholder="Enter Custom Option" className="px-4 py-2 border border-neutral-600 rounded-lg bg-neutral-900 mr-2 w-full mt-2" value={formData.catalogvariants} onChange={handleChange} />
+                                <button type="button" className="bg-orange-500 px-3  mt-2 py-1 rounded-lg text-white" onClick={handleAddOption}>Add</button>
+                            </div>
                         </div>
                         <div className="">
                             <label htmlFor="catalogskillstatus" className="text-sm">Catalog Skill Status<label className=' ml-0.5 text-orange-500'>*</label></label>
