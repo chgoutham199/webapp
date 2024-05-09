@@ -7,6 +7,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home"
 import AddProduct from "./pages/AddProduct";
 import Signup from "./pages/Signup";
+import Test  from "./components/Test"
 import Login from "./pages/Login";
 import ForgotOtp from "./pages/ForgotOtp";
 import SetPassword from "./pages/SetPassword";
@@ -34,7 +35,7 @@ export default function App() {
                 <Route path="/signupValidate/verifyOtp" element={<SignupOtp />}/>
                 <Route path="/signupValidate/verifyOtp/verifyPassword" element={<SignupPassword />}/>
         </Route>
-        <Route path="/signup" element={<Signup />}/>
+        <Route path="/signup" element={<Signup/>}/>
         <Route path="/signup25l" element={<Signuppage25less/>}/>
         <Route path="/signupg" element={<Signupage25g />} />
         <Route path="/signup2g" element={<Signuppage2g/>}/>
