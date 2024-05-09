@@ -14,7 +14,7 @@ export default function Navbar({children}) {
 
       <div className={`h-full flex flex-col  text-white ${expand ? "" : "justify-center items-center" } border-r border-neutral-800 shadow-sm`} >
           <Link to="/">          <div className='pb-2  flex  items-center pt-3 '>
-           <img src={`./logo${expand?"":"1"}.svg`} alt='Logo' className={`overflow-hidden transition-all  ${expand ?"w-40": "w-10 " }`}  />
+           <img src={`./logo${expand?"":"1"}.svg`} alt='Logo' className={`overflow-hidden transition-all  ${expand ?"w-40": "w-10 pt-1.5 " }`}  />
           </div>
           </Link>
            <ul className='flex flex-col pt-3  '>

@@ -14,7 +14,7 @@ export default function Card(props) {
     return searchWords.some(word => product.modelName.toLowerCase().includes(word));
   }) : [];
   const handleAddReviewClick = () => {
-    navigate('/search/product-variants'); 
+    navigate('/search/ProductVariants'); 
 };
   useEffect(() => {
     dispatch(updateCount(filteredProducts.length));
