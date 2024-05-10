@@ -82,10 +82,10 @@ export default function SignupPassword() {
     <div className="flex flex-col mt-3 pt-3 ">
       <div className="flex flex-col  gap-2 ">
         <span className="text-orange-400 font-semibold text-2xl mx-auto shadow-md">
-          Password Validation{" "}
+          Create New Password
         </span>
         <span className="text-neutral-600 mx-auto   shadow-md">
-          Enter New password
+          Password Creation
         </span>
       </div>
       <hr className="custom-hr flex w-3/6 mt-4 mx-auto " />
@@ -96,7 +96,7 @@ export default function SignupPassword() {
               for="password"
               className="text-neutral-300 text-sm font-semibold "
             >
-              *Enter New Password
+              *Enter Password
             </label>
             <input
               ref={passwordRef}

@@ -40,7 +40,7 @@ export default function SignupOtp() {
 
     <div className='flex flex-col mt-12 pt-12 '>
            <div className='flex flex-col  gap-1 '>
-              <span className='text-orange-400 font-semibold text-2xl mx-auto shadow-md'>Password Validation </span>
+              <span className='text-orange-400 font-semibold text-2xl mx-auto shadow-md'>OTP Verification</span>
               <div className='flex flex-col justify-center mx-auto'>
               <span className='text-base text-neutral-500 '>Enter the "6-digit" verification code sent to your e-mail address</span>
               
