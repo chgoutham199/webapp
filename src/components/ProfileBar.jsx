@@ -6,7 +6,7 @@ import { FiRefreshCcw } from "react-icons/fi";
 
 const ProfileBar = () => (
   <div style={{height: '88vh'}} className="absolute right-2 top-full mt-2 w-80 rounded-sm shadow-lg p-4 z-10 overflow-y-auto bg-neutral-950 ">
-    <div className='flex justify-between text-xl font-medium items-center'>
+    <div className='flex justify-between text-xl font-medium items-center '>
         <span>Hi, Madhav</span>
     <ArrowRight  className='cursor-pointertext-neutral-400'/>
     </div>
@@ -73,4 +73,4 @@ const ProfileBar = () => (
   </div>
 );
 
-export default ProfileBar1;
+export default ProfileBar;
