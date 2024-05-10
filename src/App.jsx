@@ -7,12 +7,10 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home"
 import AddProduct from "./pages/AddProduct";
 import Signup from "./pages/Signup";
-import Test  from "./components/Test"
 import Login from "./pages/Login";
 import ForgotOtp from "./pages/ForgotOtp";
 import SetPassword from "./pages/SetPassword";
 import Signupage25g from "./components/Signupage25g";
-import Signuppage2g from "./components/Signuppage2g";
 import SignupLastpage from "./components/SignupLastpage";
 import Signuppage25less from "./components/Signuppage25less";
 import SignupLayout from "./pages/SignupLayout";
@@ -38,7 +36,6 @@ export default function App() {
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/signup25l" element={<Signuppage25less/>}/>
         <Route path="/signupg" element={<Signupage25g />} />
-        <Route path="/signup2g" element={<Signuppage2g/>}/>
         <Route path="/signuplast" element={<SignupLastpage/>}/>
         <Route path="/search" element={<Layout />} >
           <Route index element={<Home />} />
