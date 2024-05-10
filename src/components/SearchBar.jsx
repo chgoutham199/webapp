@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect,useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import Card from './Card';
 import { useSelector } from 'react-redux';
 const Search = () => {
   const [data, setData] = useState('');
   const count = useSelector((state) => state.products.count);
-
+  const searchRef = useRef();
+  useEffect(()=>{
+ searchRef.current.focus();
+  },[])
   return (
     <div className="m-3">
-    <div className='flex items-center max-w-3xl mx-auto border border-gray-800 rounded-md mt-3 pl-3 mb-5'>
+    <div className='flex items-center max-w-3xl mx-auto border border-neutral-700 rounded-md mt-3 pl-3 mb-5'>
       <FaSearch className="text-white mr-2" />
         <input
+          ref={searchRef}
           type="text"
           value={data}
           placeholder="Search only by Brand or Model Name"
