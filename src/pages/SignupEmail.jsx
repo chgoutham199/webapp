@@ -24,7 +24,7 @@ import {useNavigate} from 'react-router-dom';
       return (
         <div className='flex flex-col mt-12 pt-10 '>
            <div className='flex flex-col  gap-2 '>
-              <span className='text-orange-400 font-semibold text-2xl mx-auto shadow-md'>Password Validation </span>
+              <span className='text-orange-400 font-semibold text-2xl mx-auto shadow-md'>Email Validation </span>
               <div className='flex flex-col justify-center mx-auto'>
               <span className='text-base text-neutral-600 '>Enter a valid e-mail address ,a verification code  will be sent to your email</span>
               <span className='text- base text-neutral-600'>address</span>

@@ -6,10 +6,9 @@ import { FaCaretDown } from 'react-icons/fa';
 import Notification from './Notification';
 import ProfileBar from './ProfileBar'; 
 import { ChevronLeft } from 'lucide-react';
-
 export default function Header() {
     const location = useLocation();
-    const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+    const [isNotificationOpen, setNotificationOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false); 
     const [currentDate, setCurrentDate] = useState(new Date());
     useEffect(() => {
@@ -21,10 +20,13 @@ export default function Header() {
 
     let headerText;
     switch (location.pathname) {
-        case '/':
+        case '/search':
             headerText = 'Home';
             break;
-        case '/AddProduct':
+        case '/search/ProductVariants':
+            headerText = 'Product Profile';
+            break;
+        case '/search/AddProduct':
             headerText = 'Add Product';
             break;
         default:
@@ -32,10 +34,9 @@ export default function Header() {
     }
     const formattedDate=currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
-    const toggleNotification = () => {
-        setIsNotificationOpen(!isNotificationOpen);
-        if (isProfileOpen) setIsProfileOpen(false); 
-    };
+    const toggleNotification = (e) => {
+        setNotificationOpen(!isNotificationOpen);
+      };
 
     const toggleProfile = () => {
         setIsProfileOpen(!isProfileOpen);
@@ -45,8 +46,8 @@ export default function Header() {
     return (
         <div className='relative flex p-4 h-16 items-center justify-between mr-4'>
             <div className='flex items-center gap-3'>
-                <Link to='/home' className=''>
-                {location.pathname=="/home/AddProduct" && <ChevronLeft className='text-orange-500' size={28}/> }
+                <Link to='/search' className=''>
+                {location.pathname!="/search" && <ChevronLeft className='text-orange-500' size={28}/> }
                 </Link>
                     <h1 className='font-semibold text-xl flex flex-wrap '>
                          <span className='text-orange-500'>{headerText}</span>
@@ -59,9 +60,9 @@ export default function Header() {
                         {formattedDate}
                     </li>
                     <li onClick={toggleNotification} className='hover:text-orange-500 cursor-pointer'>
-                        <IoIosNotificationsOutline size={25} />
+                        <img src='/Notification.svg' alt="Notification" className='w-6' />
                     </li>
-                    {isNotificationOpen && <Notification />}
+                    {isNotificationOpen && <Notification  />}
                     <li className='flex flex-col hover:text-orange-500'>
                         <span className='text-sm cursor-pointer'>Aisha Sharma</span>
                         <span className='text-xs font-extralight text-neutral-400 '>Fresher</span>

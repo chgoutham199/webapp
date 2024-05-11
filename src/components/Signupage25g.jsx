@@ -34,7 +34,7 @@ const Signupage25g = () => {
         });
         if (!hasError && nav) {
             setError(false);
-            navigate('/signup2g');
+            navigate('/signuplast');
         }
     };
 
@@ -52,7 +52,7 @@ const Signupage25g = () => {
                 setFormData({ ...formData, [name]: value });
                 setError({ ...Error, [name]: true });
             }
-        } else {
+        }else {
             setFormData({ ...formData, [name]: value });
             setError({ ...Error, [name]: false });
         }
@@ -70,19 +70,24 @@ const Signupage25g = () => {
                         <hr className="custom-hr flex w-full mt-2 mb-3" />
                     </div>
                     <div className="">
-                        <label htmlFor="designation" className=" text-sm ml-0.5">Designation<label className=' text-orange-500 text-sm' > *</label> </label>
+                        <label htmlFor="experience" className=" text-sm ml-0.5">Experience (In Years)<label className=' text-orange-500 text-sm' > *</label> </label>
+                        <select name="experience" id="experience" className={`px-4 py-2 border ${!Error.experience ? 'border-neutral-600' : 'border-red-500'} rounded-lg bg-neutral-900 w-full mt-1`} value={formData.experience} onChange={handleChange} >
+                            <option value="">Select Experience</option>
+                            <option value="Entry Level">Entry Level</option>
+                            <option value="+2 years">+2 years</option>
+                            <option value="+5 years">+5 years</option>
+                            <option value="+10 years">+10 years</option>
+                            <option value="+20 years">+20 years</option>
+                        </select>
+                    </div>
+                    <div className="">
+                        <label htmlFor="designation" className=" text-sm ml-0.5"> Current Designation<label className=' text-orange-500 text-sm' > *</label> </label>
                         <div className=" flex flex-row">
                             <input type="text" ref={Ref} id="designation" name="designation" placeholder='Enter the Designation' className={`px-4 py-2 border ${!Error.designation ? 'border-neutral-600' : 'border-red-500'} rounded-lg bg-neutral-900 w-full mt-1`} value={formData.designation} onChange={handleChange} />
                         </div>
                     </div>
                     <div className="">
-                        <label htmlFor="experience" className=" text-sm ml-0.5">Experience (In Years)<label className=' text-orange-500 text-sm' > *</label> </label>
-                        <div className=" flex flex-row">
-                            <input type="number" id="experience" name="experience" placeholder='Enter Number of Years' className={`px-4 py-2 border ${!Error.experience ? 'border-neutral-600' : 'border-red-500'} rounded-lg bg-neutral-900 w-full mt-1`} value={formData.experience} onChange={handleChange} />
-                        </div>
-                    </div>
-                    <div className="">
-                        <label htmlFor="companyName" className=" text-sm ml-0.5">Company Name<label className=' text-orange-500 text-sm' > *</label> </label>
+                        <label htmlFor="companyName" className=" text-sm ml-0.5">Current Company Name<label className=' text-orange-500 text-sm' > *</label> </label>
                         <div className=" flex flex-row">
                             <input type="text" id="companyName" name="companyName" placeholder='Company Name' className={`px-4 py-2 border ${!Error.companyName ? 'border-neutral-600' : 'border-red-500'} rounded-lg bg-neutral-900 w-full mt-1`} value={formData.companyName} onChange={handleChange} />
                         </div>
