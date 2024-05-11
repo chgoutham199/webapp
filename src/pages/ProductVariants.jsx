@@ -1,121 +1,146 @@
-import { Bold } from 'lucide-react';
-import { useNavigate } from 'react-router';
-import React, { useState } from 'react';
-const initialVariants = [
-  { id: 1, description: 'i3-12700HX (RTX 3050)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
-  { id: 2, description: 'i5-12800HX (RTX 3060)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
-  { id: 3, description: 'i7-12700HX (RTX 3060)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
-  { id: 4, description: 'i7-12900HX (RTX 3070ti)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true },
-  { id: 5, description: 'i9-12800HX (RTX 3080ti)', capabilities: 'Product Data Capability: Add Asset, Validate, Go Live', next: true }
-];
-const ProductVariants = () => {
-  const [variants, setVariants] = useState(initialVariants);
-  const addVariant = () => {
-    const newVariant = { id: variants.length + 1, description: 'New Variant', capabilities: 'Custom', next: false };
-    setVariants([...variants, newVariant]);
+import React, { useState } from "react";
+
+export default function ProductVariants() {
+  const [cards, setCards] = useState([1, 2]);
+
+  const addCard = () => {
+    setCards([...cards, cards.length + 1]);
   };
-  const navigate=useNavigate()
-  const handleClick =()=>{
-      navigate('/search/product-variants2')
-  }
-  const rows = Math.ceil((variants.length + 1) / 3);
-return (
-    <div className="bg-black text-white min-h-screen flex">
-      <div className="flex">
-        <aside className="w-[336px] h-[872px] bg-gray-800 p-4 space-y-4 overflow-y-auto">
-        <div className="flex justify-between gap-20">
-        <div>
-          <h2 className="text-sm text-gray-400 mb-1">Catalog</h2>
-          <p className="font-semibold text-4x1 text-orange-500">Laptop</p>
-        </div>
-        <div>
-          <h2 className="text-sm text-gray-400 mb-1">Sub-Catalog</h2>
-          <p className="font-bold text-4x1 text-orange-500">Gaming</p>
-        </div>
-      </div>
-          <div>
-            <h2 className="text-sm text-gray-400 mt-64">Product data capability 80%</h2>
-            <div className="w-full bg-gray-700 rounded-full h-2.5">
-              <div className="bg-orange-500 h-2.5 rounded-full mb-12" style={{ width: "80%" }}></div>
-            </div>
+  const [unit, setUnit] = useState("Inch");
+  return (
+    <div className="pr-4 mr-4  pl-4  max-h-screen ">
+      <div className="m-3 mt-0 rounded-md border border-neutral-800 shadow bg-neutral-900">
+        <div className="grid grid-flow-col">
+          <div className="flex flex-col border-r border-neutral-700 my-2  justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Catalog
+            </span>
+            <span>Television</span>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-        <h2 className="text-sm text-gray-400 col-span-2">MSI Titan GT76</h2>
-        <div className="col-span-1">
-          <p className="text-sm">Device category:</p>
-          <p className="text-sm font-semibold">Gaming Laptop</p>
-        </div>
-        <div className="col-span-1">
-        <p className="text-sm">Form factor:</p>
-        <p className="text-sm font-semibold">Notebook</p>
-        </div>
-        <div className="col-span-1">
-        <p className="text-sm">Manufacturer:</p>
-        <p className="text-sm font-semibold">Micro-star International</p>
-        </div>
-        <div className="col-span-1">
-        <p className="text-sm">Manufactured:</p>
-          <p className="text-sm font-semibold">China</p>
+          <div className="flex flex-col border-r border-neutral-700 gap-1 my-2  justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Sub Catalog
+            </span>
+            <span>Q LED</span>
+          </div>
+          <div className="flex flex-col border-r border-neutral-700 gap-1 my-2 justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Brand Name
+            </span>
+            <span>LG</span>
+          </div>
+          <div className="flex flex-col border-r border-neutral-700 gap-1 my-2 justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Model Name
+            </span>
+            <span>Y1S Pro</span>
+          </div>
+          <div className="flex flex-col border-r border-neutral-700 gap-1 my-2 justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Device category
+            </span>
+            <span>Smart TV</span>
+          </div>
+          <div className="flex flex-col border-r border-neutral-700 gap-1 my-2 justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Manufacturer
+            </span>
+            <span>BBK Electronics</span>
+          </div>
+          <div className="flex flex-col border-r border-neutral-700 gap-1 my-2 justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Manufactured in
+            </span>
+            <span>China</span>
+          </div>
+          <div className="flex flex-col  relative  gap-1  p-2 pr-3 ml-4 pt-3 justify-center items-center">
+            <span className="text-xs font-medium text-neutral-500">
+              Product ata capability
+            </span>
+            <div className="w-full bg-neutral-600 h-2 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-orange-500"
+                style={{ width: "80%" }}
+              ></div>
+            </div>
+            <span>80%</span>
+          </div>
         </div>
       </div>
-        </aside>
-        <main className="flex-1 p-4">
-        <div className="grid grid-cols-3 gap-4">
-          {variants.map(variant => (
-            <div key={variant.id} className="bg-gray-900 p-4 rounded space-y-2" style={{ width: '321px', height: '274px' }}>
-              <div className="bg-gray-800 p-2 rounded">
-                <h3 className="text-lg font-semibold">{variant.description}</h3>
-              </div>
-              <p className="text-xs font-semibold uppercase tracking-wide mb-4 text-gray-400">Product Data Capability</p>
-              <div className="flex justify-between items-center mt-5">
-                {['Add Asset', 'Validate', 'Go Live'].map((action, index) => (
-                  <div key={index} className="text-center space-y-1 mt-2">
-                    <button className="bg-gray-700 text-orange-500 px-4 py-2 rounded text-xs font-medium">{action}</button>
-                    <div className="w-full h-0.5 bg-orange-500 rounded mt-5"></div>
+      {/* cards */}
+      <div className="m-3 mt-0 rounded-md border border-neutral-800 border-t-0 rounded-t-none  flex flex-col h-full bg-neutral-900  " style={{minHeight: '75vh'}}>
+        <div className="px-9 py-1 flex flex-col gap-2 ">
+          <span className="text-orange-500 text-lg font-medium ">Variants</span>
+          <span className=" ">Telivision Size</span>
+        </div>
+        <div className="flex flex-wrap justify-start p-4 px-9 pt-2 gap-8  flex-grow">
+          {cards.map((card, index) => (
+            <div className="flex flex-col w-52 gap-4">
+              <div
+                key={index}
+                className="border border-neutral-700 rounded-sm h-44 px-4 pt-2  "
+              >
+                <div>
+                  <span className="text-sm font-medium text-neutral-500">
+                    Variant #{index + 1}
+                  </span>
+                </div>
+                <div className="flex  pt-2 gap-1">
+                  <div className="bg-neutral-800 border border-neutral-700 w-14  text-neutral-200 text-base  rounded-sm pl-2 pr-8">
+                    {unit === "cm" ? (45 + index * 10) * 2.54 : 45 + index * 10}
                   </div>
-                ))}
+                  <select
+                    className=" bg-neutral-900  text-neutral-300 text-lg font-medium"
+                    value={unit}
+                    onChange={(e) => setUnit(e.target.value)}
+                  >
+                    <option value="Inch">Inch</option>
+                    <option value="cm">cm</option>
+                  </select>
+                </div>
+                <div className=" border border-r-0 mr-5 rounded shadow-md pb-1 border-t-0 border-l-0 border-neutral-700 pt-8">
+                  <span className="text-sm">Product Data Capability</span>
+                </div>
+                <div className="flex gap-3 pt-2">
+                  <div className="flex flex-col items-center">
+                    <span className=" font-light" style={{ fontSize: "11px" }}>
+                      Add Asset
+                    </span>
+                    <span className="bg-orange-500 py-0.5 rounded w-12"></span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className=" font-light" style={{ fontSize: "11px" }}>
+                      Validate
+                    </span>
+                    <span className="bg-orange-500 py-0.5 rounded w-12"></span>
+                  </div>
+                  <div className="flex flex-col  items-center">
+                    <span className=" font-light" style={{ fontSize: "11px" }}>
+                      Go Live
+                    </span>
+                    <span className="bg-orange-500 py-0.5 rounded w-12"></span>
+                  </div>
+                </div>
               </div>
-              <button className="w-full bg-orange-500 text-white py-2 rounded text-sm mt-100">Next</button>
+
+              <button className="bg-orange-500 py-2 rounded-sm">Next</button>
             </div>
           ))}
-          <button onClick={addVariant} style={{
-              width: '321px',
-              height: '274px',
-              backgroundColor: '#251B16',
-              color: 'white',
-              borderRadius: '4px',
-              border: '3.5px dashed #F37413',
-              cursor: 'pointer',
-              fontSize: '26px',
-              fontStyle:'Bold',
-            }}
-            className="flex justify-center items-center"
+          <div
+            onClick={addCard}
+            className=" p-4 flex items-center cursor-pointer gap-2 h-48 w-48 border-dashed border-2 rounded-sm border-orange-500"
+            style={{ backgroundColor: "#251B16" }}
           >
-            + Add More Variants
-          </button>
-          <button style={{
-              gridColumn: '4 / -1',
-              gridRowStart: rows + 2, 
-              backgroundColor: '#F37413',
-              color: 'white',
-              borderRadius: '4px',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: 'bold',
-              height: '48px',
-              width: '163px'
-            }}
-            className="w-full text-center"
-            onClick={handleClick}
-          >
+            <span className="font-semibold text-lg r-4 "> + </span>
+            <span className="font-semibold text-sm "> Add More Variants </span>
+          </div>
+        </div>
+        <div className="text-right pr-14 pb-6 ">
+          <button className="bg-orange-500 text-white  py-1.5 rounded-sm px-7">
             Confirm
           </button>
         </div>
-      </main>
-    </div>
+      </div>
     </div>
   );
-};
-
-export default ProductVariants;
+}

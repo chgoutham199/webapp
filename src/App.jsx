@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Forgotlayout from "./pages/forgotlayout";
 import ForgotEmail from "./pages/ForgotEmail";
 import ProductVariants from "./pages/ProductVariants";
-import ProductVariants2 from "./pages/ProductVariants2";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home"
 import AddProduct from "./pages/AddProduct";
 import Signup from "./pages/Signup";
+import Test  from "./components/Test"
 import Login from "./pages/Login";
 import ForgotOtp from "./pages/ForgotOtp";
 import SetPassword from "./pages/SetPassword";
@@ -35,7 +35,7 @@ export default function App() {
                 <Route path="/signupValidate/verifyOtp" element={<SignupOtp />}/>
                 <Route path="/signupValidate/verifyOtp/verifyPassword" element={<SignupPassword />}/>
         </Route>
-        <Route path="/signup" element={<Signup />}/>
+        <Route path="/signup" element={<Signup/>}/>
         <Route path="/signup25l" element={<Signuppage25less/>}/>
         <Route path="/signupg" element={<Signupage25g />} />
         <Route path="/signup2g" element={<Signuppage2g/>}/>
@@ -43,8 +43,7 @@ export default function App() {
         <Route path="/search" element={<Layout />} >
           <Route index element={<Home />} />
           <Route path="/search/AddProduct" element={<AddProduct />} />
-          <Route path="/search/product-variants" element={<ProductVariants />} />
-          <Route path="/search/product-variants2" element={<ProductVariants2/>} />
+          <Route path="/search/ProductVariants" element={<ProductVariants/>} />
         </Route>
       </Routes>
     </BrowserRouter>
