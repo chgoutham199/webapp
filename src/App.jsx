@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet} from "react-router-dom";
 import Forgotlayout from "./pages/forgotlayout";
 import ForgotEmail from "./pages/ForgotEmail";
 import ProductVariants from "./pages/ProductVariants";
@@ -27,6 +27,7 @@ export default function App() {
           <Route index element={<ForgotEmail />} />
           <Route path="/forgotpassword/verifyotp" element={<ForgotOtp />} />
           <Route path="/forgotpassword/setpassword" element={< SetPassword />} />
+          <Outlet />
         </Route>
         <Route path ="/signupValidate" element={<SignupLayout/>}>
                 <Route index element={<SignupEmail />}/>
@@ -41,6 +42,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/search/AddProduct" element={<AddProduct />} />
           <Route path="/search/ProductVariants" element={<ProductVariants/>} />
+          <Outlet />
         </Route>
       </Routes>
     </BrowserRouter>
