@@ -4,11 +4,11 @@ import { ArrowRight } from 'lucide-react';
 import { IoWalletOutline } from "react-icons/io5";
 import { FiRefreshCcw } from "react-icons/fi";
 
-const ProfileBar = () => (
+const ProfileBar = ({ toggleProfile }) => (
   <div style={{height: '88vh'}} className="absolute right-2 top-full mt-2 w-80 rounded-sm shadow-lg p-4 z-10 overflow-y-auto bg-neutral-950 ">
     <div className='flex justify-between text-xl font-medium items-center '>
         <span>Hi, Madhav</span>
-    <ArrowRight  className='cursor-pointertext-neutral-400'/>
+    <ArrowRight  className='cursor-pointer text-neutral-400' onClick={toggleProfile} />
     </div>
     <span className='text-neutral-400 text-xs'>Your Profile</span>
     <div className='flex flex-col bg-neutral-900 border border-neutral-800  p-4 mt-2 rounded'>

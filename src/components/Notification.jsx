@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Notification = ({ onClose }) => {
+const Notification = () => {
   const [displayCount, setDisplayCount] = useState(3);
 
   const notifications = new Array(3).fill({

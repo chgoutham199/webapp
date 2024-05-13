@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from 'react';
+import React, { useState ,useEffect ,useRef} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
@@ -11,13 +11,31 @@ export default function Header() {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false); 
     const [currentDate, setCurrentDate] = useState(new Date());
+    const notificationRef = useRef();
+    const profileRef = useRef();
+  
     useEffect(() => {
-      const timer = setInterval(() => {
-        setCurrentDate(new Date());
-      }, 60000); // Updates every minute
-      return () => clearInterval(timer);
-    }, []);
-
+        const handleClickOutside = (event) => {
+          if (notificationRef.current && !notificationRef.current.contains(event.target)) {
+            setNotificationOpen(false);
+          }
+          if (profileRef.current && !profileRef.current.contains(event.target)) {
+            setIsProfileOpen(false);
+          }
+        };
+    
+        document.addEventListener('mousedown', handleClickOutside);
+    
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+      }, []);
+        useEffect(() => {
+        const timer = setInterval(() => {
+          setCurrentDate(new Date());
+        }, 60000); // Updates every minute
+        return () => clearInterval(timer);
+      }, []);
     let headerText;
     switch (location.pathname) {
         case '/search':
@@ -35,13 +53,16 @@ export default function Header() {
     const formattedDate=currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
     const toggleNotification = (e) => {
+        e.stopPropagation();
         setNotificationOpen(!isNotificationOpen);
+        if (isProfileOpen) setIsProfileOpen(false); // Close ProfileBar if it's open
       };
-
-    const toggleProfile = () => {
+      
+      const toggleProfile = (e) => {
+        e.stopPropagation();
         setIsProfileOpen(!isProfileOpen);
-        if (isNotificationOpen) setIsNotificationOpen(false); 
-    };
+        if (isNotificationOpen) setNotificationOpen(false); // Close Notification if it's open
+      };
 
     return (
         <div className='relative flex p-4 h-16 items-center justify-between mr-4'>
@@ -62,16 +83,16 @@ export default function Header() {
                     <li onClick={toggleNotification} className='hover:text-orange-500 cursor-pointer'>
                         <img src='/Notification.svg' alt="Notification" className='w-6' />
                     </li>
-                    {isNotificationOpen && <Notification  />}
+                    {isNotificationOpen && <Notification   ref={notificationRef}  />}
                     <li className='flex flex-col hover:text-orange-500'>
                         <span className='text-sm cursor-pointer'>Aisha Sharma</span>
                         <span className='text-xs font-extralight text-neutral-400 '>Fresher</span>
                     </li>
-                    <li className='flex items-center gap-3 hover:opacity-50 cursor-pointer ' onClick={toggleProfile}>
+                    <li className='flex items-center gap-3 hover:opacity-50 cursor-pointer ' onClick={toggleProfile} >
                         <CgProfile size={30} />
                         <FaCaretDown size={15} />
                     </li>
-                    {isProfileOpen && <ProfileBar />}
+                    {isProfileOpen && <ProfileBar ref={profileRef}  toggleProfile={toggleProfile}/>}
                 </ul>
             </div>
         </div>
